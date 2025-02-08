@@ -88,3 +88,23 @@ function displayRecipeDetails(recipe) {
         recipesContainer.scrollIntoView({ behavior: 'smooth' }); // Scroll back to the recipes
     });
 }
+
+// Disable right-click
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    alert('Right-click is disabled on this page.');
+});
+
+// Disable keyboard shortcuts for inspect tool
+document.addEventListener('keydown', (e) => {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.key === 'J') || // Ctrl+Shift+J
+        (e.ctrlKey && e.key === 'U') // Ctrl+U
+    ) {
+        e.preventDefault();
+        alert('This action is disabled on this page.');
+    }
+});
