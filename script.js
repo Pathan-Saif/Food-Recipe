@@ -7,6 +7,26 @@ const imageContainer = document.getElementById('image-container'); // Get the im
 const API_KEY = 'aa6fc911247c4b6f9062df9a155acfe8'; // Replace with your actual API key
 const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`;
 
+// Disable right-click
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    alert('Right-click is disabled on this page.');
+});
+
+// Disable keyboard shortcuts for inspect tool
+document.addEventListener('keydown', (e) => {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.key === 'J') || // Ctrl+Shift+J
+        (e.ctrlKey && e.key === 'U') // Ctrl+U
+    ) {
+        e.preventDefault();
+        alert('This action is disabled on this page.');
+    }
+});
+
 searchBtn.addEventListener('click', () => {
     const query = searchInput.value;
     if (query) {
@@ -89,22 +109,4 @@ function displayRecipeDetails(recipe) {
     });
 }
 
-// Disable right-click
-document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-    alert('Right-click is disabled on this page.');
-});
 
-// Disable keyboard shortcuts for inspect tool
-document.addEventListener('keydown', (e) => {
-    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-    if (
-        e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
-        (e.ctrlKey && e.shiftKey && e.key === 'J') || // Ctrl+Shift+J
-        (e.ctrlKey && e.key === 'U') // Ctrl+U
-    ) {
-        e.preventDefault();
-        alert('This action is disabled on this page.');
-    }
-});
