@@ -4,7 +4,7 @@ const recipesContainer = document.getElementById('recipes');
 const recipeDetailsContainer = document.getElementById('recipe-details');
 const imageContainer = document.getElementById('image-container'); // Get the image container
 
-const API_KEY = 'aa6fc911247c4b6f9062df9a155acfe8'; // Replace with your actual API key
+const API_KEY = '13deaf3a76f74a6a9e747461c983619a'; // Replace with your actual API key
 const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`;
 
 // Disable right-click
